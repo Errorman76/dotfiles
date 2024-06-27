@@ -3,7 +3,7 @@ return {
   version = "*",
   opts = {
     options = {
-      mode = "tabs",
+      mode = "buffers",
     },
   },
 }

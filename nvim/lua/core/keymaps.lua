@@ -14,8 +14,8 @@ keymap.set("n", "<A-j>", ":<C-u>m+<CR>==")
 keymap.set("v", "<A-k>", ":m-2<CR>gv=gv")
 keymap.set("v", "<A-j>", ":m'>+<CR>gv=gv")
 
-keymap.set("n", "<S-l>", "<cmd>tabn<CR>")
-keymap.set("n", "<S-h>", "<cmd>tabp<CR>")
+keymap.set("n", "<S-l>", "<cmd>bnext<CR>")
+keymap.set("n", "<S-h>", "<cmd>bprevious<CR>")
 
 keymap.set("n", "<Leader>w", "<cmd>w<CR>")
 keymap.set("n", "<Leader>q", "<cmd>q<CR>")

@@ -10,9 +10,6 @@ return {
       popup_border_style = "rounded",
       enable_git_status = true,
     })
-
-    vim.keymap.set("n", "<Leader>e", ":Neotree filesystem toggle left<CR>", {})
-    vim.keymap.set("n", "<Leader>o", ":Neotree focus<CR>", {})
   end,
 }
 

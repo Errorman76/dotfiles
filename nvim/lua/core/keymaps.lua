@@ -19,7 +19,10 @@ keymap.set("n", "<S-h>", "<cmd>bprevious<CR>")
 
 keymap.set("n", "<Leader>w", "<cmd>w<CR>")
 keymap.set("n", "<Leader>q", "<cmd>q<CR>")
-keymap.set("n", "<leader>c", "<cmd>tabclose<CR>")
+keymap.set("n", "<leader>c", function() require("mini.bufremove").delete() end)
+
+keymap.set("n", "<Leader>e", ":Neotree filesystem toggle left<CR>", {})
+keymap.set("n", "<Leader>o", ":Neotree focus<CR>", {})
 
 keymap.set("n", "<", "<<")
 keymap.set("n", ">", ">>")

@@ -22,6 +22,16 @@ keymap.set("n", "<S-h>", "<cmd>bprevious<CR>")
 keymap.set("n", "<Leader>w", "<cmd>w<CR>")
 keymap.set("n", "<Leader>q", "<cmd>q<CR>")
 keymap.set("n", "<leader>c", function() require("mini.bufremove").delete() end)
+keymap.set("n", "<leader>C", function() 
+  local current_buf = vim.api.nvim_get_current_buf()
+  local buffers = vim.fn.getbufinfo({buflisted = 1})
+
+  for _, buf in ipairs(buffers) do
+    if buf.bufnr ~= current_buf then
+      require('mini.bufremove').delete(buf.bufnr, false)
+    end
+  end
+end)
 
 -- neo-tree
 keymap.set("n", "<Leader>e", ":Neotree filesystem toggle left<CR>", {})

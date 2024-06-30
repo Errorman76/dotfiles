@@ -21,5 +21,5 @@ opt.signcolumn = "number"
 
 opt.clipboard:append("unnamedplus")
 
-opt.splitright = ture
+opt.splitright = true
 opt.splitbelow = true

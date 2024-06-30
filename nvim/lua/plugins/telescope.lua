@@ -4,6 +4,11 @@ return {
   dependencies = {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
+  keys = {
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", "n" },
+    { "<leader>fc", "<cmd>Telescope grep_string<cr>", "n" },
+    { "<leader>fw", "<cmd>Telescope live_grep<cr>", "n" },
+  },
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")

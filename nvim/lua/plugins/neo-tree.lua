@@ -4,6 +4,10 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
   },
+  keys = {
+    { "<Leader>e", ":Neotree filesystem toggle left<CR>", "n" },
+    { "<Leader>o", ":Neotree focus<CR>", "n" },
+  },
   config = function()
     require("neo-tree").setup({
       close_if_last_window = true,

@@ -5,10 +5,15 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp",
+
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets", -- snippet collection
+
     "onsails/lspkind.nvim", -- vscode style snippet
+
+    "williamboman/mason-lspconfig",
+    "neovim/nvim-lspconfig",
   },
   config = function()
     require("luasnip.loaders.from_vscode").lazy_load() -- load friendly-snippets
@@ -48,16 +53,13 @@ return {
       },
     })
 
-    -- Loop through the servers and set up each one with the same capabilities
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    local lsp_servers = require("mason-lspconfig").get_installed_servers()
-    local lspconfig = require("lspconfig")
-
-    for _, lsp in ipairs(lsp_servers) do
-      lspconfig[lsp].setup {
-        capabilities = capabilities
-      }
-    end
-
+    -- The servers and set up each one with the same capabilities
+    require("mason-lspconfig").setup_handlers({
+      function (server_name)
+        require("lspconfig")[server_name].setup({
+          capabilities = require("cmp_nvim_lsp").default_capabilities()
+        })
+      end,
+    })
   end,
 }

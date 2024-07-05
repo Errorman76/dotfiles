@@ -1,9 +1,9 @@
 return {
-  'echasnovski/mini.bufremove', 
+  'echasnovski/mini.bufremove',
   version = '*',
   keys = {
     { "<leader>c", function() require("mini.bufremove").delete() end, "n" },
-    { "<leader>C", function() 
+    { "<leader>C", function()
       local current_buf = vim.api.nvim_get_current_buf()
       local buffers = vim.fn.getbufinfo({buflisted = 1})
 
@@ -14,7 +14,7 @@ return {
       end
     end, "n" },
   },
-  config = function() 
+  config = function()
     require('mini.bufremove').setup({})
   end,
 }

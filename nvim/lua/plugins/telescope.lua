@@ -8,13 +8,13 @@ return {
     { "<leader>ff", "<cmd>Telescope find_files<cr>", "n" },
     { "<leader>fc", "<cmd>Telescope grep_string<cr>", "n" },
     { "<leader>fw", "<cmd>Telescope live_grep<cr>", "n" },
-    { "<leader>ft", "<cmd>TodoTelescope<cr>", "n" }, 
+    { "<leader>ft", "<cmd>TodoTelescope<cr>", "n" },
   },
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
 
-    telescope.setup({ 
+    telescope.setup({
       defaults = {
         path_display = { "smart" },
         mappings = {

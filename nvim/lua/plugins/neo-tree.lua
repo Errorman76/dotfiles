@@ -5,8 +5,8 @@ return {
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    { "<Leader>e", ":Neotree filesystem toggle left<CR>", "n" },
-    { "<Leader>o", ":Neotree focus<CR>", "n" },
+    { "<Leader>e", ":Neotree filesystem toggle left<CR>", "n", desc = "toggle neotree" },
+    { "<Leader>o", ":Neotree focus<CR>", "n", desc = "focus neotree" },
   },
   config = function()
     require("neo-tree").setup({

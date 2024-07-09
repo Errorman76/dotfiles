@@ -5,10 +5,10 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
   keys = {
-    { "<leader>ff", "<cmd>Telescope find_files<cr>", "n" },
-    { "<leader>fc", "<cmd>Telescope grep_string<cr>", "n" },
-    { "<leader>fw", "<cmd>Telescope live_grep<cr>", "n" },
-    { "<leader>ft", "<cmd>TodoTelescope<cr>", "n" },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", "n", desc = "find file" },
+    { "<leader>fc", "<cmd>Telescope grep_string<cr>", "n", desc = "find string" },
+    { "<leader>fw", "<cmd>Telescope live_grep<cr>", "n", desc = "find current string" },
+    { "<leader>ft", "<cmd>TodoTelescope<cr>", "n", desc = "find todo list" },
   },
   config = function()
     local telescope = require("telescope")

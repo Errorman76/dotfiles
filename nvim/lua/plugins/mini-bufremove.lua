@@ -2,7 +2,7 @@ return {
   'echasnovski/mini.bufremove',
   version = '*',
   keys = {
-    { "<leader>c", function() require("mini.bufremove").delete() end, "n" },
+    { "<leader>c", function() require("mini.bufremove").delete() end, "n", desc = "close buffer" },
     { "<leader>C", function()
       local current_buf = vim.api.nvim_get_current_buf()
       local buffers = vim.fn.getbufinfo({buflisted = 1})
@@ -12,7 +12,7 @@ return {
           require('mini.bufremove').delete(buf.bufnr, false)
         end
       end
-    end, "n" },
+    end, "n", desc = "close other buffers" },
   },
   config = function()
     require('mini.bufremove').setup({})

@@ -1,8 +1,8 @@
 return {
   "rmagatti/auto-session",
   keys = {
-    { "<leader>sr", "<cmd>SessionRestore<CR>", "n" },
-    { "<leader>ss", "<cmd>SessionSave<CR>", "n" },
+    { "<leader>sr", "<cmd>SessionRestore<CR>", "n", desc = "restore session" },
+    { "<leader>ss", "<cmd>SessionSave<CR>", "n", desc = "save session" },
   },
   config = function()
     local auto_session = require("auto-session")

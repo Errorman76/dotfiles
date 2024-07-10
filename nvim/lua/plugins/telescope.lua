@@ -3,7 +3,8 @@ return {
   branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- telescope with fzf
+    'nvim-telescope/telescope-ui-select.nvim', -- change nvim select ui, like telescope
   },
   keys = {
     { "<leader>ff", "<cmd>Telescope find_files<cr>", "n", desc = "find file" },
@@ -12,10 +13,9 @@ return {
     { "<leader>ft", "<cmd>TodoTelescope<cr>", "n", desc = "find todo list" },
   },
   config = function()
-    local telescope = require("telescope")
     local actions = require("telescope.actions")
 
-    telescope.setup({
+    require("telescope").setup({
       defaults = {
         path_display = { "smart" },
         mappings = {
@@ -24,8 +24,14 @@ return {
           },
         },
       },
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown({})
+        }
+      }
     })
 
-    require('telescope').load_extension('fzy_native')
+    require('telescope').load_extension('fzf')
+    require("telescope").load_extension("ui-select")
   end,
 }

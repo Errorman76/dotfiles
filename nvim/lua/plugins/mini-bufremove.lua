@@ -15,6 +15,6 @@ return {
     end, "n", desc = "close other buffers" },
   },
   config = function()
-    require('mini.bufremove').setup({})
+    require('mini.bufremove').setup()
   end,
 }

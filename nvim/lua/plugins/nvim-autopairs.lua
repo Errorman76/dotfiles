@@ -1,17 +1,18 @@
 return {
   "windwp/nvim-autopairs",
   event = { "InsertEnter" },
+  dependencies = {
+    "hrsh7th/nvim-cmp",
+  },
   config = function()
-    local autopairs = require("nvim-autopairs")
-
-    autopairs.setup({
+    require("nvim-autopairs").setup({
       check_ts = true, -- enable treesitter
     })
 
-    -- import nvim-autopairs completion functionality
-    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-    local cmp = require("cmp")
+    -- If you want insert `(` after select function or method item
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+    local cmp = require('cmp')
+    cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
-    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
   end,
 }

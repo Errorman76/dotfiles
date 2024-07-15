@@ -1,5 +1,5 @@
 return {
-  'mrjones2014/smart-splits.nvim',
+  "mrjones2014/smart-splits.nvim",
   keys = {
     { "<A-Up>", function() require("smart-splits").resize_up() end, "n", desc = "resize window(up)" },
     { "<A-Down>", function() require("smart-splits").resize_down() end, "n", desc = "resize window(down)" },

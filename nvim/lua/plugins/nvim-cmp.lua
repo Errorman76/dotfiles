@@ -46,5 +46,7 @@ return {
         }),
       },
     })
+
+    vim.cmd("highlight Pmenu guibg=NONE")
   end,
 }

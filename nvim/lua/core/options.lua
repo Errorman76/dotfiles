@@ -1,6 +1,5 @@
 local opt = vim.opt
 
-opt.clipboard = "unnamedplus"
 opt.relativenumber = true
 opt.number = true
 

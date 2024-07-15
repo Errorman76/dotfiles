@@ -1,19 +1,17 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = { "InsertEnter" },
   dependencies = {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
 
+    -- luanips
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
-    "rafamadriz/friendly-snippets", -- snippet collection
 
-    "onsails/lspkind.nvim", -- vscode style snippet
+    -- like vscode
+    "onsails/lspkind.nvim",
   },
   config = function()
-    require("luasnip.loaders.from_vscode").lazy_load() -- load friendly-snippets
-
     local cmp = require("cmp")
 
     cmp.setup({

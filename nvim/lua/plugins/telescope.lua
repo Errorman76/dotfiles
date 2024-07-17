@@ -10,7 +10,6 @@ return {
     { "<leader>ff", "<cmd>Telescope find_files<cr>", "n", desc = "find file" },
     { "<leader>fc", "<cmd>Telescope grep_string<cr>", "n", desc = "find string" },
     { "<leader>fw", "<cmd>Telescope live_grep<cr>", "n", desc = "find current string" },
-    { "<leader>ft", "<cmd>TodoTelescope<cr>", "n", desc = "find todo list" },
   },
   config = function()
     local actions = require("telescope.actions")

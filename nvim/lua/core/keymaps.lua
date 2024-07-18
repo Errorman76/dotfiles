@@ -21,6 +21,7 @@ keymap.set("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "previous buffer" })
 
 keymap.set("n", "<Leader>w", "<cmd>w<CR>", { desc = "save" })
 keymap.set("n", "<Leader>q", "<cmd>q<CR>", { desc = "quit" })
+keymap.set("n", "<Leader>Q", "<cmd>q!<CR>", { desc = "forced quit" })
 
 -- indent
 keymap.set("n", "<", "<<", { desc = "unindent" })

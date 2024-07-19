@@ -16,7 +16,7 @@ opt.smartcase = true
 opt.cursorline = true
 
 opt.termguicolors = true
-opt.signcolumn = "number"
+opt.signcolumn = "yes"
 
 opt.clipboard:append("unnamedplus")
 

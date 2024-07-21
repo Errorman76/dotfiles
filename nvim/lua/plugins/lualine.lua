@@ -32,20 +32,6 @@ return {
 
               return '\u{f085} ' .. table.concat(clients_list, "|")
             end
-
-            -- Display only the lsp clients associated with the current buffer
-            -- function ()
-            --   local clients = vim.lsp.buf_get_clients(vim.api.nvim_get_current_buf())
-            --   if next(clients) == nil then
-            --     return ''
-            --   end
-            --
-            --   local c = {}
-            --   for _, client in pairs(clients) do
-            --     table.insert(c, client.name)
-            --   end
-            --   return '\u{f085} ' .. table.concat(c, '|')
-            -- end
           },
           { 'encoding' },
           { 'fileformat' },

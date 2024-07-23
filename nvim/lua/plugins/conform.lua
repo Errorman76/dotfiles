@@ -8,7 +8,8 @@ return {
         sh = { "shfmt" },
         lua = { "stylua" },
         python = { "isort", "black" },
-        go = { "goimports_reviser", "gofmt", "golines" },
+        go = { "goimports-reviser", "gofmt", "golines" },
+        rust = { "rustfmt" },
 
         javascript = { "prettier" },
         typescript = { "prettier" },

@@ -11,27 +11,20 @@ return {
         globalstatus = true,
       },
       sections = {
-        lualine_x = {
+        lualine_c = {
+          { "filename" },
           {
             require("lazy.status").updates,
             cond = require("lazy.status").has_updates,
             color = { fg = "#ff9e64" },
           },
+        },
+        lualine_x = {
           {
-            -- display all attahced clients
-            function()
-              local clients = vim.lsp.get_active_clients()
-              if next(clients) == nil then
-                return ''
-              end
-
-              local clients_list = {}
-              for _, client in pairs(clients) do
-                table.insert(clients_list, client.name)
-              end
-
-              return '\u{f085} ' .. table.concat(clients_list, "|")
-            end
+            require("core.utils").get_attached_clients,
+          },
+          {
+            require("core.utils").get_attached_formatters,
           },
           { 'encoding' },
           { 'fileformat' },

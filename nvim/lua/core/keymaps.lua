@@ -36,7 +36,7 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = "equalize window size" })
 
 -- keymap.set("n", "<Leader>r", ":RunCode<CR>") -- Run code
 -- keymap.set("n", "<Leader>lf", ":lua vim.lsp.buf.format({async=true}) <CR>") -- Format Code
--- keymap.set("v", "<leader>!", 
+-- keymap.set("v", "<leader>!",
 --   function()
 --     local ftype = vim.api.nvim_eval("&filetype")
 --     vim.cmd("vsplit")
@@ -46,7 +46,7 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = "equalize window size" })
 --     vim.cmd("set filetype="..ftype)
 --     vim.cmd("diffthis")
 --     vim.cmd([[execute "normal! \<C-w>h"]])
--- 
+--
 --     vim.cmd("normal! gv")
 --     vim.cmd("'<,'>y")
 --     vim.cmd("enew")
@@ -56,4 +56,3 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = "equalize window size" })
 --     vim.cmd("diffthis")
 --   end, {desc = "diff with clipboard"}
 -- )
-

@@ -46,6 +46,18 @@ return {
 					capabilities = require("cmp_nvim_lsp").default_capabilities(),
 				})
 			end,
+			["lua_ls"] = function()
+				require("lspconfig").lua_ls.setup({
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
+					settings = {
+						Lua = {
+							diagnostics = {
+								globals = { "vim" },
+							},
+						},
+					},
+				})
+			end,
 		})
 	end,
 }

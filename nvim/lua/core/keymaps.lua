@@ -1,38 +1,77 @@
+local utils = require("core.utils")
+
+--- Map a key combination to a command
+---@param modes string|string[]: The mode(s) to map the key combination to
+---@param lhs string: The key combination to map
+---@param rhs string|function: The command to run when the key combination is pressed
+---@param opts table: Options to pass to the keymap
+local map = function(modes, lhs, rhs, opts)
+	local options = { silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	if type(modes) == "string" then
+		modes = { modes }
+	end
+	for _, mode in ipairs(modes) do
+		vim.keymap.set(mode, lhs, rhs, options)
+	end
+end
+
 vim.g.mapleader = " "
 
-local keymap = vim.keymap
+map("i", "jk", "<ESC>", { desc = "exit insert mode" })
 
-keymap.set("i", "jk", "<ESC>", { desc = "exit insert mode" })
+map("n", "<leader>nh", "<cmd>noh<CR>", { desc = "no highlight" })
 
-keymap.set("n", "<leader>nh", "<cmd>noh<CR>", { desc = "no highlight" })
-
-keymap.set("n", "+", "<C-a>", { desc = "increase number" })
-keymap.set("n", "-", "<C-x>", { desc = "decrease number" })
+map("n", "+", "<C-a>", { desc = "increase number" })
+map("n", "-", "<C-x>", { desc = "decrease number" })
 
 -- line
-keymap.set("n", "<A-k>", ":<C-u>m-2<CR>==", { desc = "move up line" })
-keymap.set("n", "<A-j>", ":<C-u>m+<CR>==", { desc = "move down line" })
-keymap.set("v", "<A-k>", ":m-2<CR>gv=gv", { desc = "move up line" })
-keymap.set("v", "<A-j>", ":m'>+<CR>gv=gv", { desc = "move down line" })
+map("n", "<A-k>", ":<C-u>m-2<CR>==", { desc = "move up line" })
+map("n", "<A-j>", ":<C-u>m+<CR>==", { desc = "move down line" })
+map("v", "<A-k>", ":m-2<CR>gv=gv", { desc = "move up line" })
+map("v", "<A-j>", ":m'>+<CR>gv=gv", { desc = "move down line" })
 
 -- buffer
-keymap.set("n", "<S-l>", "<cmd>bnext<CR>", { desc = "next buffere" })
-keymap.set("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "previous buffer" })
+map("n", "<S-l>", "<cmd>bnext<CR>", { desc = "next buffere" })
+map("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "previous buffer" })
 
-keymap.set("n", "<Leader>w", "<cmd>w<CR>", { desc = "save" })
-keymap.set("n", "<Leader>q", "<cmd>q<CR>", { desc = "quit" })
-keymap.set("n", "<Leader>Q", "<cmd>q!<CR>", { desc = "forced quit" })
+map("n", "<Leader>w", "<cmd>w<CR>", { desc = "save" })
+map("n", "<Leader>q", "<cmd>q<CR>", { desc = "quit" })
+map("n", "<Leader>Q", "<cmd>q!<CR>", { desc = "forced quit" })
 
 -- indent
-keymap.set("n", "<", "<<", { desc = "unindent" })
-keymap.set("n", ">", ">>", { desc = "indent" })
-keymap.set("v", "<", "<gv", { desc = "nuindent" })
-keymap.set("v", ">", ">gv", { desc = "indent" })
+map("n", "<", "<<", { desc = "unindent" })
+map("n", ">", ">>", { desc = "indent" })
+map("v", "<", "<gv", { desc = "nuindent" })
+map("v", ">", ">gv", { desc = "indent" })
 
 -- window
-keymap.set("n", "<leader>\\", "<C-w>s", { desc = "split horizontal" })
-keymap.set("n", "<leader>|", "<C-w>v", { desc = "split virtical" })
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "equalize window size" })
+map("n", "<leader>\\", "<C-w>s", { desc = "split horizontal" })
+map("n", "<leader>|", "<C-w>v", { desc = "split virtical" })
+map("n", "<leader>se", "<C-w>=", { desc = "equalize window size" })
+
+-- diff
+-- stylua: ignore start
+map("n", "<leader>df", function() utils.telescope_diff_file() end, { desc = "Diff file with current buffer" })
+map("n", "<leader>dr", function() utils.telescope_diff_file(true) end, { desc = "Diff recent file with current buffer" })
+map("n", "<leader>dg", function() utils.telescope_diff_from_history() end, { desc = "Diff from git history" })
+-- stylua: ignore end
+
+-- Code/LSP
+-- stylua: ignore start
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
+map("n", "gK", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+map("n", "gr", ":Telescope lsp_references<cr>", { desc = "Goto References" })
+map("n", "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, { desc = "Goto Implementation" })
+map("n", "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, { desc = "Goto Definition" })
+map("n", "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, { desc = "Goto Type Definition" })
+-- stylua: ignore end
 
 -- keymap.set("n", "<Leader>r", ":RunCode<CR>") -- Run code
 -- keymap.set("n", "<Leader>lf", ":lua vim.lsp.buf.format({async=true}) <CR>") -- Format Code

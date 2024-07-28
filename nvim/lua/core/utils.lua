@@ -106,4 +106,24 @@ function M.telescope_diff_from_history()
 	})
 end
 
+--- diff with clipboard
+function M.diff_from_clipboard()
+	local ftype = vim.api.nvim_eval("&filetype")
+	vim.cmd("vsplit")
+	vim.cmd("enew")
+	vim.cmd("normal! P")
+	vim.cmd("setlocal buftype=nowrite")
+	vim.cmd("set filetype=" .. ftype)
+	vim.cmd("diffthis")
+	vim.cmd([[execute "normal! \<C-w>h"]])
+
+	vim.cmd("normal! gv")
+	vim.cmd("'<,'>y")
+	vim.cmd("enew")
+	vim.cmd("normal! P")
+	vim.cmd("setlocal buftype=nowrite")
+	vim.cmd("set filetype=" .. ftype)
+	vim.cmd("diffthis")
+end
+
 return M

@@ -57,41 +57,18 @@ map("n", "<leader>se", "<C-w>=", { desc = "equalize window size" })
 map("n", "<leader>df", function() utils.telescope_diff_file() end, { desc = "Diff file with current buffer" })
 map("n", "<leader>dr", function() utils.telescope_diff_file(true) end, { desc = "Diff recent file with current buffer" })
 map("n", "<leader>dg", function() utils.telescope_diff_from_history() end, { desc = "Diff from git history" })
+map("v", "<leader>dc", function() utils.diff_from_clipboard() end, { desc = "Diff from clipboard" })
 -- stylua: ignore end
 
 -- Code/LSP
 -- stylua: ignore start
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
-map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
+map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "<leader>lh", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
-map("n", "gK", vim.lsp.buf.signature_help, { desc = "Signature Help" })
 map("n", "gr", ":Telescope lsp_references<cr>", { desc = "Goto References" })
 map("n", "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, { desc = "Goto Implementation" })
 map("n", "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, { desc = "Goto Definition" })
 map("n", "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, { desc = "Goto Type Definition" })
 -- stylua: ignore end
-
--- keymap.set("n", "<Leader>r", ":RunCode<CR>") -- Run code
--- keymap.set("n", "<Leader>lf", ":lua vim.lsp.buf.format({async=true}) <CR>") -- Format Code
--- keymap.set("v", "<leader>!",
---   function()
---     local ftype = vim.api.nvim_eval("&filetype")
---     vim.cmd("vsplit")
---     vim.cmd("enew")
---     vim.cmd("normal! P")
---     vim.cmd("setlocal buftype=nowrite")
---     vim.cmd("set filetype="..ftype)
---     vim.cmd("diffthis")
---     vim.cmd([[execute "normal! \<C-w>h"]])
---
---     vim.cmd("normal! gv")
---     vim.cmd("'<,'>y")
---     vim.cmd("enew")
---     vim.cmd("normal! P")
---     vim.cmd("setlocal buftype=nowrite")
---     vim.cmd("set filetype="..ftype)
---     vim.cmd("diffthis")
---   end, {desc = "diff with clipboard"}
--- )

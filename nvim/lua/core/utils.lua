@@ -39,6 +39,15 @@ function M.get_attached_formatters()
 	return ""
 end
 
+--- Get linters
+function M.get_attached_linters()
+	local linters = require("lint").get_running()
+	if #linters == 0 then
+		return ""
+	end
+	return "󱉶 " .. table.concat(linters, ", ")
+end
+
 --- Display a diff between the current buffer and a given file
 --- @param file string The file to diff against the current buffer
 function M.diff_file(file)

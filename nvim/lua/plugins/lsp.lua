@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 		"hrsh7th/cmp-nvim-lsp",
 	},
@@ -10,6 +11,9 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
+				-- bash
+				"bashls",
+
 				-- lua
 				"lua_ls",
 
@@ -36,6 +40,21 @@ return {
 				"dockerls",
 				"taplo",
 				-- "yamllsk"
+			},
+		})
+
+		require("mason-tool-installer").setup({
+			ensure_installed = {
+				-- formatter
+				"prettier",
+				"black",
+				"isort",
+				"shfmt",
+				"stylua",
+
+				-- linter
+				"eslint_d",
+				"pylint",
 			},
 		})
 

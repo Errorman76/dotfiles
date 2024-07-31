@@ -1,25 +1,23 @@
 return {
 	"rcarriga/nvim-dap-ui",
-	dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+	dependencies = {
+		"mfussenegger/nvim-dap",
+		"nvim-neotest/nvim-nio",
+		"theHamsta/nvim-dap-virtual-text",
+	},
+	keys = {
+    -- stylua: ignore start
+    { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
+    { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+		-- stylua: ignore end
+	},
 	config = function()
-		require("dapui").setup({
-			controls = {
-				enabled = true,
-				element = "repl",
-				icons = {
-					pause = "",
-					play = "",
-					step_into = "",
-					step_over = "",
-					step_out = "",
-					step_back = "",
-					run_last = "",
-					terminate = "",
-				},
-			},
-		})
+		local dap = require("dap")
+		local dapui = require("dapui")
+		local dap_virtual_text = require("nvim-dap-virtual-text")
 
-		local dap, dapui = require("dap"), require("dapui")
+		dapui.setup()
+		dap_virtual_text.setup()
 
     -- stylua: ignore start
 		dap.listeners.before.attach.dapui_config = function() dapui.open() end

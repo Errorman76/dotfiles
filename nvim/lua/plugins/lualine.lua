@@ -5,6 +5,8 @@ return {
 		"nvim-lua/lsp-status.nvim",
 	},
 	config = function()
+		local utils_status = require("utils.status")
+
 		require("lualine").setup({
 			options = {
 				theme = "gruvbox",
@@ -21,13 +23,13 @@ return {
 				},
 				lualine_x = {
 					{
-						require("core.utils").get_attached_clients,
+						utils_status.get_attached_clients,
 					},
 					{
-						require("core.utils").get_attached_formatters,
+						utils_status.get_attached_formatters,
 					},
 					{
-						require("core.utils").get_attached_linters,
+						utils_status.get_attached_linters,
 					},
 					{ "encoding" },
 					{ "fileformat" },

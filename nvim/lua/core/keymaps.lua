@@ -54,10 +54,10 @@ map("n", "<leader>se", "<C-w>=", { desc = "equalize window size" })
 
 -- diff
 -- stylua: ignore start
--- map("n", "<leader>df", function() utils_diff.telescope_diff_file() end, { desc = "Diff file with current buffer" })
--- map("n", "<leader>dr", function() utils_diff.telescope_diff_file(true) end, { desc = "Diff recent file with current buffer" })
--- map("n", "<leader>dg", function() utils_diff.telescope_diff_from_history() end, { desc = "Diff from git history" })
--- map("v", "<leader>dc", function() utils_diff.diff_from_clipboard() end, { desc = "Diff from clipboard" })
+map("n", "<leader>df", function() utils_diff.telescope_diff_file() end, { desc = "Diff file with current buffer" })
+map("n", "<leader>dr", function() utils_diff.telescope_diff_file(true) end, { desc = "Diff recent file with current buffer" })
+map("n", "<leader>dg", function() utils_diff.telescope_diff_from_history() end, { desc = "Diff from git history" })
+map("v", "<leader>dc", function() utils_diff.diff_from_clipboard() end, { desc = "Diff from clipboard" })
 -- stylua: ignore end
 
 -- Code/LSP
@@ -68,7 +68,7 @@ map("n", "<leader>lh", vim.lsp.buf.signature_help, { desc = "Signature Help" })
 
 map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
 map("n", "gr", ":Telescope lsp_references<cr>", { desc = "Goto References" })
-map("n", "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, { desc = "Goto Implementation" })
+map("n", "gi", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, { desc = "Goto Implementation" })
 map("n", "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, { desc = "Goto Definition" })
 map("n", "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, { desc = "Goto Type Definition" })
 -- stylua: ignore end

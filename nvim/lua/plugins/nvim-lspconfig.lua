@@ -17,6 +17,9 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+
+			-- using rustaceanvim
+			["rust_analyzer"] = function() end,
 		})
 
 		-- lus_ls setup

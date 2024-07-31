@@ -15,13 +15,14 @@ return {
 			sections = {
 				lualine_c = {
 					{ "filename" },
+					{ "aerial" },
+				},
+				lualine_x = {
 					{
 						require("lazy.status").updates,
 						cond = require("lazy.status").has_updates,
 						color = { fg = "#ff9e64" },
 					},
-				},
-				lualine_x = {
 					{
 						utils_status.get_attached_clients,
 					},

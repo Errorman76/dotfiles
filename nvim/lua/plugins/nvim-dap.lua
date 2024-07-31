@@ -4,6 +4,7 @@ return {
 	keys = {
     -- stylua: ignore start
     { "<F5>", function() require("dap").continue() end, desc = "Continue" },
+    { "<C-F5>", function() require("dap").restart_frame() end, desc = "Restart" },
     { "<S-F5>", function() require("dap").terminate() end, desc = "Terminate" },
     { "<F6>", function() require("dap").pause() end, desc = "Pause" },
     { "<F9>", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },

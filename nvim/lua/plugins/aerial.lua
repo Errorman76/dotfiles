@@ -12,7 +12,6 @@ return {
 		-- stylua: ignore end
 	},
 	config = function()
-		-- TODO: extend symbol detection level
 		require("aerial").setup()
 	end,
 }

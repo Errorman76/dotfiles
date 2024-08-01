@@ -4,14 +4,14 @@ return {
 	keys = {
     -- stylua: ignore start
     { "<F5>", function() require("dap").continue() end, desc = "Continue" },
-    { "<C-F5>", function() require("dap").restart_frame() end, desc = "Restart" },
-    { "<S-F5>", function() require("dap").terminate() end, desc = "Terminate" },
+    { "<F17>", function() require("dap").terminate() end, desc = "Terminate" },
+    { "<F29>", function() require("dap").restart_frame() end, desc = "Restart" },
     { "<F6>", function() require("dap").pause() end, desc = "Pause" },
     { "<F9>", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-    { "<S-F9>", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
+    { "<F21>", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
     { "<F10>", function() require("dap").step_over() end, desc = "Step Over" },
-    { "<C-F11>", function() require("dap").step_into() end, desc = "Step Into" },
-    { "<S-F11>", function() require("dap").step_out() end, desc = "Step Out" },
+    { "<F11>", function() require("dap").step_into() end, desc = "Step Into" },
+    { "<F23>", function() require("dap").step_out() end, desc = "Step Out" },
 
     { "<leader>dr", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
     { "<leader>dh", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },

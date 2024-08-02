@@ -58,8 +58,13 @@ return {
 
 		require("mason-nvim-dap").setup({
 			ensure_installed = {
+				-- javascript
 				"js",
+
+				-- python
 				"python",
+
+				-- rust
 				"codelldb",
 			},
 		})

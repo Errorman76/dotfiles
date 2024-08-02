@@ -1,6 +1,8 @@
 return {
 	"mfussenegger/nvim-dap",
-	dependencies = {},
+	dependencies = {
+		"mxsdev/nvim-dap-vscode-js",
+	},
 	keys = {
     -- stylua: ignore start
     { "<F5>", function() require("dap").continue() end, desc = "Continue" },
@@ -18,17 +20,38 @@ return {
 		-- stylua: ignore end
 	},
 	config = function()
-		-- load default dap-adapter from mason-nvim-dap
-		require("mason-nvim-dap").setup({
-			handlers = {
-				function(config)
-					require("mason-nvim-dap").default_setup(config)
-				end,
+		local dap = require("dap")
+		if not dap.adapters["pwa-node"] then
+			dap.adapters["pwa-node"] = {
+				type = "server",
+				host = "localhost",
+				port = "${port}",
+				executable = {
+					command = "node",
+					args = {
+						require("mason-registry").get_package("js-debug-adapter"):get_install_path()
+							.. "/js-debug/src/dapDebugServer.js",
+						"${port}",
+					},
+				},
+			}
+		end
 
-				-- using rustaceanvim
-				codelldb = function() end,
-			},
-		})
+		if not dap.adapters.node then
+			dap.adapters.node = function(cb, config)
+				if config.type == "node" then
+					config.type = "pwa-node"
+				end
+
+				local pwa_adapter = dap.adapters["pwa-node"]
+
+				if type(pwa_adapter) == "function" then
+					pwa_adapter(cb, config)
+				else
+					cb(pwa_adapter)
+				end
+			end
+		end
 
 		-- setup dap config by VsCode launch.json file
 		local vscode = require("dap.ext.vscode")

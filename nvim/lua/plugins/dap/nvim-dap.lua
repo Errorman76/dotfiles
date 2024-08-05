@@ -20,38 +20,14 @@ return {
 		-- stylua: ignore end
 	},
 	config = function()
+		-- user modules
+		local config_js = require("plugins.dap.configs.js")
+
+		-- plugins
 		local dap = require("dap")
-		if not dap.adapters["pwa-node"] then
-			dap.adapters["pwa-node"] = {
-				type = "server",
-				host = "localhost",
-				port = "${port}",
-				executable = {
-					command = "node",
-					args = {
-						require("mason-registry").get_package("js-debug-adapter"):get_install_path()
-							.. "/js-debug/src/dapDebugServer.js",
-						"${port}",
-					},
-				},
-			}
-		end
 
-		if not dap.adapters.node then
-			dap.adapters.node = function(cb, config)
-				if config.type == "node" then
-					config.type = "pwa-node"
-				end
-
-				local pwa_adapter = dap.adapters["pwa-node"]
-
-				if type(pwa_adapter) == "function" then
-					pwa_adapter(cb, config)
-				else
-					cb(pwa_adapter)
-				end
-			end
-		end
+		-- setup js debugger
+		config_js.setup_dap(dap)
 
 		-- setup dap config by VsCode launch.json file
 		local vscode = require("dap.ext.vscode")

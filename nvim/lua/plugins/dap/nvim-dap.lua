@@ -20,14 +20,19 @@ return {
 		-- stylua: ignore end
 	},
 	config = function()
-		-- user modules
-		local config_js = require("plugins.dap.configs.js")
-
-		-- plugins
 		local dap = require("dap")
 
-		-- setup js debugger
-		config_js.setup_dap(dap)
+		-- setup dap-adapter per languages
+		local adapters = {
+			"js-debug-adapter",
+		}
+
+		for _, adapter in ipairs(adapters) do
+			local ok, config = pcall(require, "plugins.dap.configs." .. adapter)
+			if ok then
+				config.setup_dap(dap)
+			end
+		end
 
 		-- setup dap config by VsCode launch.json file
 		local vscode = require("dap.ext.vscode")

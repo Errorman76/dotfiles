@@ -23,6 +23,7 @@ return {
 						["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 					},
 				},
+				layout_config = { height = 0.95, width = 0.95 },
 			},
 			extensions = {
 				["ui-select"] = {

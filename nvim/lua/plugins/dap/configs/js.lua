@@ -1,6 +1,6 @@
 local M = {}
 
---- @param any dap plugin
+--- @param dap any plugin
 M.setup_dap = function(dap)
 	if not dap.adapters["pwa-node"] then
 		dap.adapters["pwa-node"] = {

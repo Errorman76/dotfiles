@@ -21,6 +21,7 @@ return {
 				"cssls",
 				"tailwindcss",
 				"jsonls",
+				"emmet_language_server",
 
 				-- python
 				"pyright",

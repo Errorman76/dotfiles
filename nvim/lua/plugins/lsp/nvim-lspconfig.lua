@@ -25,6 +25,7 @@ return {
 		-- setup lsp per languages
 		local servers = {
 			"lua_ls",
+			"emmet_language_server",
 			-- TODO: configure lsp setup below server
 			-- "tsserver",
 			-- "pyright",

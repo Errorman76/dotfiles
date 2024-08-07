@@ -25,10 +25,9 @@ return {
 		-- setup lsp per languages
 		local servers = {
 			"lua_ls",
+			"tsserver",
 			"emmet_language_server",
-			-- TODO: configure lsp setup below server
-			-- "tsserver",
-			-- "pyright",
+			"pyright",
 		}
 
 		for _, server in ipairs(servers) do

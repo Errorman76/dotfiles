@@ -1,12 +1,12 @@
 local M = {}
 
 M.setup_lsp = function(lspconfig, capabilities)
-	lspconfig.lua_ls.setup({
+	lspconfig.pyright.setup({
 		capabilities = capabilities,
 		settings = {
-			Lua = {
-				diagnostics = {
-					globals = { "vim" },
+			python = {
+				analysis = {
+					diagnosticMode = "workspace",
 				},
 			},
 		},

@@ -1,6 +1,7 @@
 return {
 	{
 		"dmmulroy/tsc.nvim",
+		enabled = false,
 		config = function()
 			require("tsc").setup({
 				use_trouble_qflist = true,

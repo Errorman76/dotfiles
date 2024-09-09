@@ -1,7 +1,7 @@
 local M = {}
 
 M.setup_lsp = function(lspconfig, capabilities)
-	lspconfig.tsserver.setup({
+	lspconfig.ts_ls.setup({
 		capabilities = capabilities,
 		settings = {
 			javascript = {

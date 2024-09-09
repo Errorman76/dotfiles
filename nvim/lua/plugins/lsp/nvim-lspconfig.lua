@@ -19,7 +19,7 @@ return {
 			end,
 
 			-- using typescript-tools
-			["tsserver"] = function() end,
+			["ts_ls"] = function() end,
 
 			-- using rustaceanvim
 			["rust_analyzer"] = function() end,
@@ -27,7 +27,7 @@ return {
 
 		-- setup lsp per languages
 		local servers = {
-			-- "tsserver",
+			-- "ts_ls",
 			"lua_ls",
 			"emmet_language_server",
 			"pyright",

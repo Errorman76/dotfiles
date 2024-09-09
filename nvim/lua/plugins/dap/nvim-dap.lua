@@ -1,8 +1,5 @@
 return {
 	"mfussenegger/nvim-dap",
-	dependencies = {
-		"mxsdev/nvim-dap-vscode-js",
-	},
 	keys = {
     -- stylua: ignore start
     { "<F5>", function() require("dap").continue() end, desc = "Continue" },

@@ -16,7 +16,7 @@ return {
 				"lua_ls",
 
 				-- frontend
-				"tsserver",
+				"ts_ls",
 				"html",
 				"cssls",
 				"tailwindcss",

@@ -1,16 +1,19 @@
 return {
 	{
-		"dmmulroy/tsc.nvim",
-		enabled = false,
+		"pmizio/typescript-tools.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"neovim/nvim-lspconfig",
+
+			"artemave/workspace-diagnostics.nvim",
+		},
+		opts = {},
 		config = function()
-			require("tsc").setup({
-				use_trouble_qflist = true,
+			require("typescript-tools").setup({
+				on_attach = function(client, bufnr)
+					require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+				end,
 			})
 		end,
-	},
-	{
-		"pmizio/typescript-tools.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {},
 	},
 }

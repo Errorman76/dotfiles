@@ -18,11 +18,11 @@ return {
 				})
 			end,
 
-			-- using typescript-tools
-			["ts_ls"] = function() end,
-
-			-- using rustaceanvim
-			["rust_analyzer"] = function() end,
+			["rust_analyzer"] = function() end, -- using rustaceanvim
+			["ts_ls"] = function() end, -- using typescript-tools
+			["lua_ls"] = function() end,
+			["emmet_language_server"] = function() end,
+			["pyright"] = function() end,
 		})
 
 		-- setup lsp per languages

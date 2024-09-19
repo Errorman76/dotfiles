@@ -27,6 +27,9 @@ M.setup_lsp = function(lspconfig, capabilities)
 				description = "Organize imports",
 			},
 		},
+		on_attach = function(client, bufnr)
+			require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
+		end,
 	})
 end
 

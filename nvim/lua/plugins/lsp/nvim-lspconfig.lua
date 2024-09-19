@@ -27,7 +27,7 @@ return {
 
 		-- setup lsp per languages
 		local servers = {
-			-- "ts_ls",
+			"ts_ls",
 			"lua_ls",
 			"emmet_language_server",
 			"pyright",

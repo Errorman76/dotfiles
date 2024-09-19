@@ -5,6 +5,8 @@ return {
 		"williamboman/mason-lspconfig",
 
 		"hrsh7th/cmp-nvim-lsp",
+
+		"artemave/workspace-diagnostics.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")

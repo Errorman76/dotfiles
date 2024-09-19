@@ -37,10 +37,6 @@ map("v", "<A-j>", ":m'>+<CR>gv=gv", { desc = "move down line" })
 map("n", "<S-l>", "<cmd>bnext<CR>", { desc = "next buffere" })
 map("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "previous buffer" })
 
-map("n", "<Leader>w", "<cmd>w<CR>", { desc = "save" })
-map("n", "<Leader>q", "<cmd>q<CR>", { desc = "quit" })
-map("n", "<Leader>Q", "<cmd>q!<CR>", { desc = "forced quit" })
-
 -- indent
 map("n", "<", "<<", { desc = "unindent" })
 map("n", ">", ">>", { desc = "indent" })
@@ -50,14 +46,12 @@ map("v", ">", ">gv", { desc = "indent" })
 -- window
 map("n", "<leader>\\", "<C-w>s", { desc = "split horizontal" })
 map("n", "<leader>|", "<C-w>v", { desc = "split virtical" })
-map("n", "<leader>se", "<C-w>=", { desc = "equalize window size" })
+map("n", "<leader>we", "<C-w>=", { desc = "equalize window size" })
 
 -- diff
 -- stylua: ignore start
 map("n", "<leader>df", function() utils_diff.telescope_diff_file() end, { desc = "Diff file with current buffer" })
 map("v", "<leader>dc", function() utils_diff.diff_from_clipboard() end, { desc = "Diff from clipboard" })
--- map("n", "<leader>dr", function() utils_diff.telescope_diff_file(true) end, { desc = "Diff recent file with current buffer" })
--- map("n", "<leader>dg", function() utils_diff.telescope_diff_from_history() end, { desc = "Diff from git history" })
 -- stylua: ignore end
 
 -- Code/LSP

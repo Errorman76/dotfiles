@@ -3,7 +3,7 @@ local M = {}
 --- Get lsp servers
 function M.get_attached_clients()
 	local bufnr = vim.api.nvim_get_current_buf()
-	local clients = vim.lsp.buf_get_clients(bufnr)
+	local clients = vim.lsp.get_clients({ bufnr = bufnr })
 	if next(clients) == nil then
 		return ""
 	end
@@ -41,11 +41,17 @@ end
 
 --- Get linters
 function M.get_attached_linters()
-	local linters = require("lint").get_running()
-	if #linters == 0 then
-		return ""
+	local status, lint = pcall(require, "lint")
+	if not status then
+		return "lint not installed"
 	end
-	return "󱉶 " .. table.concat(linters, ", ")
+
+	local linters = lint.get_running()
+	if #linters > 0 then
+		return "\u{f3eb} " .. table.concat(linters, "|")
+	end
+
+	return ""
 end
 
 return M

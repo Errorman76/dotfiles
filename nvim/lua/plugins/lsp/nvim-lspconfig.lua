@@ -5,8 +5,6 @@ return {
 		"williamboman/mason-lspconfig",
 
 		"hrsh7th/cmp-nvim-lsp",
-
-		"artemave/workspace-diagnostics.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -20,19 +18,17 @@ return {
 				})
 			end,
 
+			["lua_ls"] = function() end,
+			["pyright"] = function() end,
 			["rust_analyzer"] = function() end, -- using rustaceanvim
 			["ts_ls"] = function() end, -- using typescript-tools
-			["lua_ls"] = function() end,
-			["emmet_language_server"] = function() end,
-			["pyright"] = function() end,
 		})
 
 		-- setup lsp per languages
 		local servers = {
-			"ts_ls",
 			"lua_ls",
-			"emmet_language_server",
 			"pyright",
+			-- "ts_ls",
 		}
 
 		for _, server in ipairs(servers) do

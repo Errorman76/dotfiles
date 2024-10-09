@@ -7,8 +7,8 @@ return {
 	},
 	keys = {
     -- stylua: ignore start
-    { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
-    { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+    { "<leader>du", function() require("dapui").toggle({ }) end, desc = "toggle dap ui" },
+    { "<leader>de", function() require("dapui").eval() end, desc = "eval dap", mode = {"n", "v"} },
 		-- stylua: ignore end
 	},
 	config = function()

@@ -50,19 +50,19 @@ map("n", "<leader>we", "<C-w>=", { desc = "equalize window size" })
 
 -- diff
 -- stylua: ignore start
-map("n", "<leader>df", function() utils_diff.telescope_diff_file() end, { desc = "Diff file with current buffer" })
-map("v", "<leader>dc", function() utils_diff.diff_from_clipboard() end, { desc = "Diff from clipboard" })
+map("n", "<leader>df", function() utils_diff.telescope_diff_file() end, { desc = "diff file with current buffer" })
+map("v", "<leader>dc", function() utils_diff.diff_from_clipboard() end, { desc = "diff from clipboard" })
 -- stylua: ignore end
 
 -- Code/LSP
 -- stylua: ignore start
-map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
-map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
-map("n", "<leader>lh", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "code action" })
+map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "rename" })
+map("n", "<leader>lh", vim.lsp.buf.signature_help, { desc = "signature help" })
 
-map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
-map("n", "gr", ":Telescope lsp_references<cr>", { desc = "Goto References" })
-map("n", "gi", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, { desc = "Goto Implementation" })
-map("n", "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, { desc = "Goto Definition" })
-map("n", "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, { desc = "Goto Type Definition" })
+map("n", "gD", vim.lsp.buf.declaration, { desc = "go to declaration" })
+map("n", "gr", ":Telescope lsp_references<cr>", { desc = "go to references" })
+map("n", "gi", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, { desc = "go to implementation" })
+map("n", "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, { desc = "go to definition" })
+map("n", "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, { desc = "go to type definition" })
 -- stylua: ignore end

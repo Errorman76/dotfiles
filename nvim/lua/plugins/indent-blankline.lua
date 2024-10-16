@@ -6,11 +6,11 @@ return {
 			indent = {
 				char = "┊",
 			},
-			scope = {
-				include = {
-					node_type = { ["*"] = { "*" } },
-				},
-			},
+			-- scope = {
+			-- 	include = {
+			-- 		node_type = { ["*"] = { "*" } },
+			-- 	},
+			-- },
 		})
 	end,
 }

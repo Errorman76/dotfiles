@@ -1,6 +1,6 @@
 return {
 	"szw/vim-maximizer",
 	keys = {
-		{ "<leader>wm", "<cmd>MaximizerToggle<CR>", "n", desc = "mximize current window" },
+		{ "<leader>pm", "<cmd>MaximizerToggle<CR>", "n", desc = "mximize current pane" },
 	},
 }

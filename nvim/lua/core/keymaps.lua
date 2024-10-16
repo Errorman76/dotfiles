@@ -36,6 +36,9 @@ map("v", "<A-j>", ":m'>+<CR>gv=gv", { desc = "move down line" })
 -- buffer
 map("n", "<S-l>", "<cmd>bnext<CR>", { desc = "next buffere" })
 map("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "previous buffer" })
+map("n", "<Leader>w", "<cmd>w<CR>", { desc = "write buffer" })
+map("n", "<Leader>q", "<cmd>q<CR>", { desc = "quit buffer" })
+map("n", "<Leader>Q", "<cmd>q!<CR>", { desc = "enforce quit buffer" })
 
 -- indent
 map("n", "<", "<<", { desc = "unindent" })
@@ -46,7 +49,7 @@ map("v", ">", ">gv", { desc = "indent" })
 -- window
 map("n", "<leader>\\", "<C-w>s", { desc = "split horizontal" })
 map("n", "<leader>|", "<C-w>v", { desc = "split virtical" })
-map("n", "<leader>we", "<C-w>=", { desc = "equalize window size" })
+map("n", "<leader>pe", "<C-w>=", { desc = "equalize pane size" })
 
 -- diff
 -- stylua: ignore start

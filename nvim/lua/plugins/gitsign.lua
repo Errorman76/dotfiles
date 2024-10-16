@@ -16,8 +16,8 @@ return {
 				map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "preview hunk" })
 				map("n", "<leader>hb", function() gitsigns.blame_line({ full = true }) end, { desc = "blame line" })
 				map("n", "<leader>ht", gitsigns.toggle_current_line_blame, { desc = "toggle blame lens" })
-        map('n', '<leader>hd', gitsigns.diffthis)
-        map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
+        map('n', '<leader>hd', gitsigns.diffthis, { desc = "git diff" })
+        map('n', '<leader>hD', function() gitsigns.diffthis('~') end, { desc = "git diff with previous commit" })
 				-- stylua: ignore end
 			end,
 		})

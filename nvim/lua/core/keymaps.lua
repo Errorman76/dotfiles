@@ -11,10 +11,10 @@ local map = function(modes, lhs, rhs, opts)
 		options = vim.tbl_extend("force", options, opts)
 	end
 	if type(modes) == "string" then
-		modes = { modes }
+		modes = vim.split(modes, ",", { plain = true, trimempty = true })
 	end
 	for _, mode in ipairs(modes) do
-		vim.keymap.set(mode, lhs, rhs, options)
+		vim.keymap.set(mode:gsub("%s+", ""), lhs, rhs, options)
 	end
 end
 
@@ -59,7 +59,7 @@ map("v", "<leader>dc", function() utils_diff.diff_from_clipboard() end, { desc =
 
 -- Code/LSP
 -- stylua: ignore start
-map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "code action" })
+map("n, v", "<leader>la", vim.lsp.buf.code_action, { desc = "code action" })
 map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "rename" })
 map("n", "<leader>lh", vim.lsp.buf.signature_help, { desc = "signature help" })
 

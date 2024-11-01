@@ -20,7 +20,8 @@ end
 
 vim.g.mapleader = " "
 
-map("i", "jk", "<ESC>", { desc = "exit insert mode" })
+-- map("i", "jk", "<ESC>", { desc = "exit insert mode" })
+map("t", "<ESC>", "<C-\\><C-n>", { desc = "exit insert mode from dap-terminal" })
 
 map("n", "<leader>nh", "<cmd>noh<CR>", { desc = "no highlight" })
 

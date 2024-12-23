@@ -13,6 +13,18 @@ return {
 				globalstatus = true,
 			},
 			sections = {
+				lualine_b = {
+					{ "branch" },
+					{ "diff" },
+					{ "diagnostics" },
+					{
+						function()
+							return vim.g.remote_neovim_host and ("Remote: %s"):format(vim.uv.os_gethostname()) or ""
+						end,
+						padding = { right = 1, left = 1 },
+						separator = { left = "", right = "" },
+					},
+				},
 				lualine_c = {
 					{ "filename" },
 					{ "aerial" },
@@ -23,15 +35,9 @@ return {
 						cond = require("lazy.status").has_updates,
 						color = { fg = "#ff9e64" },
 					},
-					{
-						utils_status.get_attached_clients,
-					},
-					{
-						utils_status.get_attached_formatters,
-					},
-					{
-						utils_status.get_attached_linters,
-					},
+					{ utils_status.get_attached_clients },
+					{ utils_status.get_attached_formatters },
+					{ utils_status.get_attached_linters },
 					{ "encoding" },
 					{ "fileformat" },
 					{ "filetype" },

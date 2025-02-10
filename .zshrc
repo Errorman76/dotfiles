@@ -22,6 +22,8 @@ export NVM_DIR="$HOME/.nvm"
 # alias
 alias nv=$(which nvim)
 alias lg=$(which lazygit)
+alias obs="cd /Users/errorman76/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Errorman76"
+
 
 # alias - autocmd
 alias removeNvim="\
